@@ -20,7 +20,18 @@ public class WildEncounter : IEncounter
     public void Attack()
     {
         Debug.Log($"Vous attaquez {pokemon} !");
-        EnnemyAttack();
+        
+        // add une chance de tuer le pokemon et finir le combat
+        Random random = new Random();
+        if (random.Next(0, 3) == 0)
+        {
+            Debug.Log($"Vous avez tué {pokemon} !");
+            End();
+        }
+        else
+        {
+            EnnemyAttack();
+        }
     }
 
     public void Heal()
@@ -32,6 +43,13 @@ public class WildEncounter : IEncounter
     public void EnnemyAttack()
     {
         Debug.Log($"{pokemon} vous attaque !");
+        // add une chance de tuer votre pokemon et finir le combat
+        Random random = new Random();
+        if (random.Next(0, 3) == 0)
+        {
+            Debug.Log($"{pokemon} vous a tué !");
+            End();
+        }
     }
 
     public void Capture()

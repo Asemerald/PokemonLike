@@ -23,7 +23,6 @@ public class FightEncounter : IEncounter
     public void Attack()
     {
         Debug.Log($"Vous attaquez le {pokemon} de {trainer} !");
-        EnnemyAttack();
         
         // add une chance de tuer le pokemon et finir le combat
         Random random = new Random();
@@ -31,6 +30,10 @@ public class FightEncounter : IEncounter
         {
             Debug.Log($"Vous avez tué le {pokemon} de {trainer} !");
             End();
+        }
+        else
+        {
+            EnnemyAttack();
         }
     }
 
